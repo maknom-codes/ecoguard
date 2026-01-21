@@ -1,0 +1,46 @@
+package com.maknom.eco.guard.configuration;
+
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+
+import java.util.Arrays;
+import java.util.List;
+
+@Configuration
+public class CorsConfig {
+
+   private final String allowedOrigins;
+   private final boolean allowCredentials;
+
+   public CorsConfig(@Value("${cors.allowed-origins}") String allowedOrigins,
+                     @Value("${cors.allowed-credentials}") boolean allowCredentials) {
+      this.allowedOrigins = allowedOrigins;
+      this.allowCredentials = allowCredentials;
+   }
+
+   @Bean
+   public CorsFilter corsFilter() {
+      CorsConfiguration config = new CorsConfiguration();
+      List<String> origins = Arrays.asList(allowedOrigins.split(","));
+      config.setAllowedOrigins(origins);
+      config.setAllowedMethods(Arrays.asList("GET", "POST", "OPTIONS"));
+      config.setAllowedHeaders(Arrays.asList("Content-Type", "X-Source-SW", "Origin", "Accept", "X-Requested-With", "Authorization"));
+      config.setExposedHeaders(Arrays.asList(
+              "Set-Cookie",
+              "Authorization"
+//              "X-Auth-Status"
+      ));
+      config.setAllowCredentials(allowCredentials);
+      config.setMaxAge(3600L);
+
+      UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+      source.registerCorsConfiguration("/**", config);
+
+      return new CorsFilter(source);
+   }
+}

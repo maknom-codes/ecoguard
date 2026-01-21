@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  postgis:
+    container_name: ecoguard-postgis
+    image: postgis/postgis:17-3.5-alpine
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-ecoguard}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-ecoguard}
+      - POSTGRES_DB=${POSTGRES_DB:-db_ecoguard}
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - ecoguard_network
+
+  redis:
+    image: redis:7-alpine
+    container_name: ecoguard-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --requirepass ecoguard123
+    volumes:
+      - ecoguard_cache:/data
+    networks:
+      - ecoguard_network
+
+volumes:
+  postgres_data:
+    external: false
+  ecoguard_cache:
+    external: false
+
+networks:
+  ecoguard_network:
+    driver: bridge
+    external: false
