@@ -1,8 +1,8 @@
 package com.maknom.eco.guard.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.maknom.eco.guard.model.zone.ProtectedZone;
+import com.maknom.eco.guard.model.geom.GeoJsonFeature;
+import com.maknom.eco.guard.model.geom.GeoJsonFeatureCollection;
+import com.maknom.eco.guard.model.geom.GeoJsonService;
 import com.maknom.eco.guard.model.zone.ProtectedZoneBean;
 import com.maknom.eco.guard.model.zone.ProtectedZoneRequest;
 import com.maknom.eco.guard.model.zone.ProtectedZoneService;
@@ -13,14 +13,13 @@ import org.locationtech.jts.geom.LinearRing;
 import org.locationtech.jts.geom.Polygon;
 import org.locationtech.jts.geom.PrecisionModel;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @Service
@@ -28,20 +27,21 @@ public class ProtectedZoneServiceImpl implements ProtectedZoneService {
 
    private final ProtectedZoneRepository protectedZoneRepository;
 
-   private final ObjectMapper objectMapper;
+   private final GeoJsonService geoJsonService;
 
 
    public ProtectedZoneServiceImpl(ProtectedZoneRepository protectedZoneRepository,
-                                   ObjectMapper objectMapper) {
+                                   GeoJsonService geoJsonService) {
       this.protectedZoneRepository = protectedZoneRepository;
-      this.objectMapper = objectMapper;
+      this.geoJsonService = geoJsonService;
    }
 
 
    @Override
    @Transactional
-   @CacheEvict(value = "zones", allEntries = true)
-   public ProtectedZone create(ProtectedZoneRequest protectedZoneRequest) {
+   @CacheEvict(value = "zone_list", allEntries = true)
+   @CachePut(value = "zone_single", key = "#result.properties['id']")
+   public GeoJsonFeature create(ProtectedZoneRequest protectedZoneRequest) {
       GeometryFactory geometryFactory = new GeometryFactory(new PrecisionModel(), 4326);
 
       List<double[]> formattedCoords = protectedZoneRequest.getDataCoordinates()
@@ -66,38 +66,16 @@ public class ProtectedZoneServiceImpl implements ProtectedZoneService {
       protectedZoneBean.setName(protectedZoneRequest.getName());
       protectedZoneBean.setGeom(polygon);
 
-      protectedZoneBean = protectedZoneRepository.saveAndFlush(protectedZoneBean);
-      ProtectedZone protectedZone;
-      try {
-         protectedZone = new ProtectedZone();
-         protectedZone.setId(protectedZoneBean.getId());
-         protectedZone.setName(protectedZone.getName());
-         protectedZone.setGeoJson(objectMapper.writeValueAsString(protectedZoneBean.getGeom()));
-      } catch (JsonProcessingException e) {
-         throw new RuntimeException(e);
-      }
-      return protectedZone;
+      protectedZoneBean = protectedZoneRepository.save(protectedZoneBean);
+      return geoJsonService.convertToGeoJsonPolygonFeature(protectedZoneBean);
    }
 
    @Override
-   @Cacheable(value = "zones", key = "#root.methodName")
-   public List<ProtectedZone> getAllZones() {
-      List<ProtectedZone> protectedZones = new ArrayList<>();
-      protectedZones = protectedZoneRepository.findAll()
-              .stream()
-              .map(protectedZoneBean -> {
-                 try {
-                    ProtectedZone protectedZone = new ProtectedZone();
-                    protectedZone.setId(protectedZoneBean.getId());
-                    protectedZone.setName(protectedZoneBean.getName());
-                    protectedZone.setGeoJson(objectMapper.writeValueAsString(protectedZoneBean.getGeom()));
-                    return protectedZone;
-                 } catch (JsonProcessingException e) {
-                    throw new RuntimeException(e);
-                 }
-              })
-              .collect(Collectors.toList());
-      return protectedZones;
+   @Cacheable(value = "zone_list", key = "'all'")
+   public GeoJsonFeatureCollection getAllZones() {
+      List<ProtectedZoneBean> protectedZones = protectedZoneRepository.findAll();
+
+      return geoJsonService.convertZonesToGeoJson(protectedZones);
    }
 
    @Override

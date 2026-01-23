@@ -1,6 +1,6 @@
 package com.maknom.eco.guard.controller;
 import com.maknom.eco.guard.model.geom.GeoJsonFeature;
-import com.maknom.eco.guard.model.geom.GeoJsonGeometry;
+import com.maknom.eco.guard.model.geom.PointGeometry;
 import com.maknom.eco.guard.model.incident.IncidentBean;
 import com.maknom.eco.guard.model.user.UserBean;
 import jakarta.servlet.http.Cookie;
@@ -44,7 +44,7 @@ public abstract class AbstractController {
 
    public GeoJsonFeature buildSyncIncidentData(IncidentBean incident, UserBean userBean) {
 
-      GeoJsonGeometry geometry = new GeoJsonGeometry(incident.getGeom().getX(), incident.getGeom().getY());
+      PointGeometry geometry = new PointGeometry(incident.getGeom().getX(), incident.getGeom().getY());
       Map<String, Object> properties = new HashMap<>();
       properties.put("id", userBean.getName());
       properties.put("zoneId", incident.getZoneId());

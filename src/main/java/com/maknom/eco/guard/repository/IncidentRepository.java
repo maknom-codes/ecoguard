@@ -15,13 +15,14 @@ import java.util.Optional;
 @Repository
 public interface IncidentRepository extends JpaRepository<IncidentBean, Long> {
 
-
    @Query("""
            SELECT i
            FROM incidents i 
            WHERE i.id =:id 
            """)
+   @Override
    Optional<IncidentBean> findById(@Param("id") Long id);
+
 
 
 //   @Query(value = """

@@ -2,10 +2,14 @@ package com.maknom.eco.guard.service;
 
 import com.maknom.eco.guard.model.geom.GeoJsonFeature;
 import com.maknom.eco.guard.model.geom.GeoJsonFeatureCollection;
-import com.maknom.eco.guard.model.geom.GeoJsonGeometry;
+import com.maknom.eco.guard.model.geom.PointGeometry;
 import com.maknom.eco.guard.model.geom.GeoJsonService;
+import com.maknom.eco.guard.model.geom.PolygonGeometry;
 import com.maknom.eco.guard.model.incident.IncidentBean;
+import com.maknom.eco.guard.model.zone.ProtectedZoneBean;
+import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Point;
+import org.locationtech.jts.geom.Polygon;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -26,9 +30,17 @@ public class GeoJsonServiceImpl implements GeoJsonService {
       return new GeoJsonFeatureCollection(features);
    }
 
-   private GeoJsonFeature convertToGeoJsonFeature(IncidentBean incidentBean) {
+   @Override
+   public GeoJsonFeatureCollection convertZonesToGeoJson(List<ProtectedZoneBean> zones) {
+      List<GeoJsonFeature> features = zones.stream()
+              .map(this::convertToGeoJsonPolygonFeature)
+              .collect(Collectors.toList());
+      return new GeoJsonFeatureCollection(features);
+   }
+
+   public GeoJsonFeature<PointGeometry> convertToGeoJsonFeature(IncidentBean incidentBean) {
       Point point = incidentBean.getGeom();
-      GeoJsonGeometry geometry = new GeoJsonGeometry(
+      PointGeometry geometry = new PointGeometry(
               point.getX(),
               point.getY()
       );
@@ -41,7 +53,29 @@ public class GeoJsonServiceImpl implements GeoJsonService {
       properties.put("urgency", incidentBean.getUrgency());
       properties.put("reportDate", incidentBean.getReportDate().toString());
 
-      return new GeoJsonFeature(geometry, properties);
+      return new GeoJsonFeature<>(geometry, properties);
+   }
+
+
+   public GeoJsonFeature<PolygonGeometry> convertToGeoJsonPolygonFeature(ProtectedZoneBean zoneBean) {
+      Polygon polygon = zoneBean.getGeom();
+      Coordinate[] jtsCoords = polygon.getExteriorRing().getCoordinates();
+      double[][] exteriorRing = new double[jtsCoords.length][2];
+
+      for (int i = 0; i < jtsCoords.length; i++) {
+         exteriorRing[i][0] = jtsCoords[i].x;
+         exteriorRing[i][1] = jtsCoords[i].y;
+      }
+
+      double[][][] coordinates = new double[][][] { exteriorRing };
+      PolygonGeometry geometry = new PolygonGeometry(coordinates);
+
+      Map<String, Object> properties = Map.of(
+              "id", zoneBean.getId(),
+              "name", zoneBean.getName()
+      );
+
+      return new GeoJsonFeature<>(geometry, properties);
    }
 
 }

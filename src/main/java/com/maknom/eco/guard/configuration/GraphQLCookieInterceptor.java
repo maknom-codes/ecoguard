@@ -1,8 +1,4 @@
 package com.maknom.eco.guard.configuration;
-
-import com.maknom.eco.guard.model.user.UserService;
-import com.maknom.eco.guard.service.AuthenticationService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.graphql.server.WebGraphQlInterceptor;
 import org.springframework.graphql.server.WebGraphQlRequest;
 import org.springframework.graphql.server.WebGraphQlResponse;

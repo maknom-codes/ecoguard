@@ -25,7 +25,7 @@ input ZoneInput {
 }
 
 type EcoGuardResponse {
-    protectedZones: [ProtectedZone!]!
+    protectedZones: ZoneResponse!
     incidentZones: IncidentResponse!
 }
 
@@ -96,15 +96,33 @@ type IncidentResponse {
     features: [IncidentFeature!]!
 }
 
+
+type ZoneResponse {
+    type: String!
+    features: [ZoneFeature!]!
+}
+
 type IncidentFeature {
     type: String!
     geometry: IncidentGeometry!
     properties: IncidentProperties!
 }
 
+type ZoneFeature {
+    type: String!
+    geometry: ZoneGeometry!
+    properties: ZoneProperties!
+}
+
 type IncidentGeometry {
     type: String!
     coordinates: [Float!]!
+}
+
+
+type ZoneGeometry {
+    type: String!
+    coordinates: [[[Float!]!]!]!
 }
 
 type IncidentProperties {
@@ -115,6 +133,11 @@ type IncidentProperties {
     description: String!
     urgency: String!
     reportDate: String!
+}
+
+type ZoneProperties {
+    id: ID!
+    name: String!
 }
 
 scalar JSON

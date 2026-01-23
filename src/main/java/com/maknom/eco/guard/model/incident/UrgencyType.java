@@ -8,11 +8,11 @@ public enum UrgencyType {
 
 
    @JsonCreator
-   public static UrgencyType parseUrgencyType(String urgency) {
+   public static UrgencyType parse(String urgency) {
       return  Arrays.stream(UrgencyType.values())
               .filter(t -> t.name().equalsIgnoreCase(urgency))
               .findFirst()
-              .orElse(LOW);
+              .orElse(null);
    }
 
    @Override

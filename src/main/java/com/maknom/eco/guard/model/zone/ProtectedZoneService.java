@@ -1,12 +1,14 @@
 package com.maknom.eco.guard.model.zone;
 
-import java.util.List;
+import com.maknom.eco.guard.model.geom.GeoJsonFeature;
+import com.maknom.eco.guard.model.geom.GeoJsonFeatureCollection;
+
 
 public interface ProtectedZoneService {
 
-   ProtectedZone create(ProtectedZoneRequest protectedZoneRequest);
+   GeoJsonFeature create(ProtectedZoneRequest protectedZoneRequest);
 
-   List<ProtectedZone> getAllZones();
+   GeoJsonFeatureCollection getAllZones();
 
    ProtectedZoneBean getById(Long protectedZ0neId);
 }

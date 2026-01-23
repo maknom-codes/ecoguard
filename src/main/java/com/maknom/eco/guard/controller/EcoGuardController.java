@@ -1,4 +1,5 @@
 package com.maknom.eco.guard.controller;
+import com.maknom.eco.guard.model.geom.GeoJsonFeature;
 import com.maknom.eco.guard.model.geom.GeoJsonFeatureCollection;
 import com.maknom.eco.guard.model.geom.GeoJsonService;
 import com.maknom.eco.guard.model.incident.IncidentBean;
@@ -9,6 +10,7 @@ import com.maknom.eco.guard.model.user.UserBean;
 import com.maknom.eco.guard.model.user.UserRequest;
 import com.maknom.eco.guard.model.user.UserService;
 import com.maknom.eco.guard.model.zone.ProtectedZone;
+import com.maknom.eco.guard.model.zone.ProtectedZoneBean;
 import com.maknom.eco.guard.model.zone.ProtectedZoneRequest;
 import com.maknom.eco.guard.model.zone.ProtectedZoneService;
 import com.maknom.eco.guard.service.AuthenticationService;
@@ -88,7 +90,7 @@ public class EcoGuardController extends AbstractController {
    @QueryMapping(name = "getZones")
    @PreAuthorize("isAuthenticated()")
    public EcoGuardResponse get() {
-      List<ProtectedZone> protectedZones = protectedZoneService.getAllZones();
+      GeoJsonFeatureCollection protectedZones = protectedZoneService.getAllZones();
       List<IncidentBean> incidents = incidentService.getAllIncidents();
       GeoJsonFeatureCollection incidentZones = geoJsonService.convertIncidentsToGeoJson(incidents);
       return EcoGuardResponse.builder()
@@ -103,7 +105,10 @@ public class EcoGuardController extends AbstractController {
    public ProtectedZone createZone(@Argument(name = "input") ProtectedZoneRequest protectedZoneRequest) {
       if (protectedZoneRequest.getName().length() < 3)
          throw new IllegalArgumentException("Name is too short");
-      return protectedZoneService.create(protectedZoneRequest);
+      GeoJsonFeature feature = protectedZoneService.create(protectedZoneRequest);
+      ProtectedZone zone = new ProtectedZone();
+      zone.setId((Long) feature.getProperties().get("id"));
+      return zone;
    }
 
 

@@ -16,6 +16,6 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class EcoGuardResponse {
-   List<ProtectedZone> protectedZones;
+   GeoJsonFeatureCollection protectedZones;
    GeoJsonFeatureCollection incidentZones;
 }

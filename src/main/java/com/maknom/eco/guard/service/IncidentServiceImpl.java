@@ -57,7 +57,7 @@ public class IncidentServiceImpl implements IncidentService {
       IncidentBean incidentBean = new IncidentBean();
       incidentBean.setDescription(incidentRequest.getDescription());
       incidentBean.setCategory(incidentRequest.getCategory());
-      incidentBean.setUrgency(UrgencyType.parseUrgencyType(incidentRequest.getUrgency()));
+      incidentBean.setUrgency(UrgencyType.parse(incidentRequest.getUrgency()));
       incidentBean.setGeom(position);
       incidentBean.setUserId(userBean.getId());
       incidentBean.setZoneId(protectedZoneBean.getId());
@@ -81,7 +81,7 @@ public class IncidentServiceImpl implements IncidentService {
       IncidentBean incidentBean = new IncidentBean();
       incidentBean.setDescription(syncDataRequest.getIncidentRequest().getDescription());
       incidentBean.setCategory(syncDataRequest.getIncidentRequest().getCategory());
-      incidentBean.setUrgency(UrgencyType.parseUrgencyType(syncDataRequest.getIncidentRequest().getUrgency()));
+      incidentBean.setUrgency(UrgencyType.parse(syncDataRequest.getIncidentRequest().getUrgency()));
       incidentBean.setGeom(position);
       incidentBean.setUserId(userBean.getId());
       incidentBean.setZoneId(protectedZoneBean.getId());
