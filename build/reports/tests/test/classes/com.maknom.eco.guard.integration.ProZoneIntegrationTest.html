@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.397s</div>
+<div class="counter">3.162s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">whenProZoneIsCreated_thenItShouldSuccess()</td>
-<td class="success">0.397s</td>
+<td class="success">3.162s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,8 +87,94 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2026-01-23T11:44:57.321+01:00  INFO 9828 --- [ecoguard] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.maknom.eco.guard.integration.ProZoneIntegrationTest]: ProZoneIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-01-23T11:44:57.355+01:00  INFO 9828 --- [ecoguard] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.maknom.eco.guard.EcoGuardApplication for test class com.maknom.eco.guard.integration.ProZoneIntegrationTest
+<pre>11:01:51.269 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.maknom.eco.guard.integration.ProZoneIntegrationTest]: ProZoneIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+11:01:51.378 [Test worker] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+11:01:51.387 [Test worker] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+11:01:51.413 [Test worker] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 1.20.4
+11:01:51.776 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+11:01:52.372 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+11:01:52.376 [Test worker] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+11:01:52.415 [Test worker] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 20.10.21
+  API Version: 1.41
+  Operating System: Docker Desktop
+  Total Memory: 1984 MB
+11:01:52.459 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Creating container for image: testcontainers/ryuk:0.11.0
+11:01:52.629 [Test worker] INFO org.testcontainers.utility.RegistryAuthLocator -- Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+11:01:52.952 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Container testcontainers/ryuk:0.11.0 is starting: 5f688d9892e56865735a14170c2ef4a1863b73b19dade66452840d182f51544a
+11:01:53.619 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Container testcontainers/ryuk:0.11.0 started in PT1.1602446S
+11:01:53.629 [Test worker] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+11:01:53.629 [Test worker] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+11:01:53.630 [Test worker] INFO org.testcontainers.DockerClientFactory -- ?? Docker server version should be at least 1.6.0
+11:01:53.633 [Test worker] INFO tc.postgis/postgis:17-3.5-alpine -- Creating container for image: postgis/postgis:17-3.5-alpine
+11:01:53.753 [Test worker] INFO tc.postgis/postgis:17-3.5-alpine -- Container postgis/postgis:17-3.5-alpine is starting: 371ce8c4058ea2d1a32624554024b90e82035f7baad57a68722fe75524b28f73
+11:02:00.510 [Test worker] INFO tc.postgis/postgis:17-3.5-alpine -- Container postgis/postgis:17-3.5-alpine started in PT6.8771768S
+11:02:00.512 [Test worker] INFO tc.postgis/postgis:17-3.5-alpine -- Container is started (JDBC URL: jdbc:postgresql://localhost:60741/db_ecoguard?loggerLevel=OFF)
+11:02:00.515 [Test worker] INFO tc.redis:7-alpine -- Creating container for image: redis:7-alpine
+11:02:00.849 [Test worker] INFO tc.redis:7-alpine -- Container redis:7-alpine is starting: 96eb69dd9c9a6266e02d7dd38901a7a11aeec2c7a036b50f34ecd3062e819562
+11:02:01.510 [Test worker] INFO tc.redis:7-alpine -- Container redis:7-alpine started in PT0.9951852S
+11:02:01.824 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.maknom.eco.guard.EcoGuardApplication for test class com.maknom.eco.guard.integration.ProZoneIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.1)
+
+2026-01-26T11:02:02.885+01:00  WARN 2400 --- [ecoguard] [    Test worker] ory$DuplicateJsonObjectContextCustomizer : 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/aristide/.gradle/caches/modules-2/files-2.1/org.json/json/20240303/ebb88e8fb5122b7506d5cf1d69f1ccdb790d22a/json-20240303.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/aristide/.gradle/caches/modules-2/files-2.1/com.vaadin.external.google/android-json/0.0.20131108.vaadin1/fa26d351fe62a6a17f5cda1287c1c6110dec413f/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2026-01-26T11:02:02.941+01:00  INFO 2400 --- [ecoguard] [    Test worker] c.m.e.g.i.ProZoneIntegrationTest         : Starting ProZoneIntegrationTest using Java 17.0.5 with PID 2400 (started by aristide in C:\Software\private\backend-roadmap\eco-prjct\eco-guard\ecoguard)
+2026-01-26T11:02:02.943+01:00  INFO 2400 --- [ecoguard] [    Test worker] c.m.e.g.i.ProZoneIntegrationTest         : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2026-01-26T11:02:04.872+01:00  INFO 2400 --- [ecoguard] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-01-26T11:02:04.873+01:00  INFO 2400 --- [ecoguard] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-26T11:02:05.202+01:00  INFO 2400 --- [ecoguard] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 300 ms. Found 3 JPA repository interfaces.
+2026-01-26T11:02:07.494+01:00  INFO 2400 --- [ecoguard] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-26T11:02:07.694+01:00  INFO 2400 --- [ecoguard] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.4.Final
+2026-01-26T11:02:07.723+01:00  INFO 2400 --- [ecoguard] [    Test worker] o.h.spatial.integration.SpatialService   : HHH80000001: hibernate-spatial integration enabled : true
+2026-01-26T11:02:07.795+01:00  INFO 2400 --- [ecoguard] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-01-26T11:02:08.065+01:00  WARN 2400 --- [ecoguard] [    Test worker] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [hibernate.temp.use_jdbc_metadata_defaults], use [hibernate.boot.allow_jdbc_metadata_access] instead
+2026-01-26T11:02:08.114+01:00  WARN 2400 --- [ecoguard] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-26T11:02:08.165+01:00  INFO 2400 --- [ecoguard] [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [undefined/unknown]
+	Database driver: undefined/unknown
+	Database version: 12.0
+	Autocommit mode: undefined/unknown
+	Isolation level: &lt;unknown&gt;
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-26T11:02:08.193+01:00  INFO 2400 --- [ecoguard] [    Test worker] org.hibernate.spatial                    : HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-01-26T11:02:08.654+01:00  INFO 2400 --- [ecoguard] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-26T11:02:08.704+01:00  INFO 2400 --- [ecoguard] [    Test worker] org.hibernate.spatial                    : HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-01-26T11:02:09.436+01:00  INFO 2400 --- [ecoguard] [    Test worker] org.hibernate.spatial                    : HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
+2026-01-26T11:02:10.625+01:00  INFO 2400 --- [ecoguard] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-26T11:02:10.632+01:00  INFO 2400 --- [ecoguard] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-26T11:02:11.321+01:00  INFO 2400 --- [ecoguard] [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-26T11:02:12.811+01:00  INFO 2400 --- [ecoguard] [    Test worker] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-01-26T11:02:12.814+01:00  WARN 2400 --- [ecoguard] [    Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-01-26T11:02:14.837+01:00  WARN 2400 --- [ecoguard] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-26T11:02:16.148+01:00  INFO 2400 --- [ecoguard] [    Test worker] efaultSchemaResourceGraphQlSourceBuilder : Loaded 1 resource(s) in the GraphQL schema.
+2026-01-26T11:02:16.638+01:00  INFO 2400 --- [ecoguard] [    Test worker] o.s.b.a.g.GraphQlAutoConfiguration       : GraphQL schema inspection:
+	Unmapped fields: {ZoneProperties=[id, name], IncidentProperties=[id, zoneId, userId, category, description, urgency, reportDate]}
+	Unmapped registrations: {}
+	Unmapped arguments: {}
+	Skipped types: [ZoneGeometry, IncidentGeometry, IncidentFeature]
+2026-01-26T11:02:16.714+01:00  INFO 2400 --- [ecoguard] [    Test worker] s.b.a.g.s.GraphQlWebMvcAutoConfiguration : GraphQL endpoint HTTP POST /graphql
+2026-01-26T11:02:16.806+01:00  INFO 2400 --- [ecoguard] [    Test worker] s.b.a.g.s.GraphQlWebMvcAutoConfiguration : GraphQL endpoint WebSocket /graphql
+2026-01-26T11:02:18.472+01:00  INFO 2400 --- [ecoguard] [    Test worker] c.m.e.g.i.ProZoneIntegrationTest         : Started ProZoneIntegrationTest in 16.332 seconds (process running for 29.647)
+2026-01-26T11:02:18.479+01:00  INFO 2400 --- [ecoguard] [    Test worker] c.m.e.g.c.ServerStartupLogger            : ECO GUARD is Ready !
+2026-01-26T11:02:18.535+01:00  INFO 2400 --- [ecoguard] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-01-26T11:02:18.944+01:00  INFO 2400 --- [ecoguard] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3369fe5c
+2026-01-26T11:02:18.950+01:00  INFO 2400 --- [ecoguard] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
 Hibernate: insert into protected_zones (geom,name) values (?,?)
 </pre>
 </span>
@@ -101,7 +187,7 @@ Hibernate: insert into protected_zones (geom,name) values (?,?)
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.10</a> at Jan 23, 2026, 11:44:58 AM</p>
+<a href="http://www.gradle.org">Gradle 8.10</a> at Jan 26, 2026, 11:02:26 AM</p>
 </div>
 </div>
 </body>

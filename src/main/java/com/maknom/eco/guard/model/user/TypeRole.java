@@ -10,7 +10,7 @@ public enum TypeRole {
 
 
    @JsonCreator
-   public static TypeRole parseTypeRole(String role) {
+   public static TypeRole parse(String role) {
       return  Arrays.stream(TypeRole.values())
               .filter(t -> t.name().equalsIgnoreCase(role))
               .findFirst()

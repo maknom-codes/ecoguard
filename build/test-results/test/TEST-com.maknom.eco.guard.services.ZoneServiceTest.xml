@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.maknom.eco.guard.services.ZoneServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-23T10:44:21" hostname="DESKTOP-CP2Q1PN" time="2.997">
+<testsuite name="com.maknom.eco.guard.services.ZoneServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-26T10:02:25" hostname="DESKTOP-CP2Q1PN" time="0.096">
   <properties/>
-  <testcase name="createZone_ShouldPass_WithWrongPolygonValue()" classname="com.maknom.eco.guard.services.ZoneServiceTest" time="2.997"/>
+  <testcase name="createZone_ShouldPass_WithWrongPolygonValue()" classname="com.maknom.eco.guard.services.ZoneServiceTest" time="0.096"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

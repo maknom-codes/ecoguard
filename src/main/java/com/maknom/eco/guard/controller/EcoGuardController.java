@@ -103,8 +103,9 @@ public class EcoGuardController extends AbstractController {
    @MutationMapping(name = "createProtectedZone")
    @PreAuthorize("hasRole('ADMIN')")
    public ProtectedZone createZone(@Argument(name = "input") ProtectedZoneRequest protectedZoneRequest) {
-      if (protectedZoneRequest.getName().length() < 3)
+      if (protectedZoneRequest.getName().length() < 3) {
          throw new IllegalArgumentException("Name is too short");
+      }
       GeoJsonFeature feature = protectedZoneService.create(protectedZoneRequest);
       ProtectedZone zone = new ProtectedZone();
       zone.setId((Long) feature.getProperties().get("id"));

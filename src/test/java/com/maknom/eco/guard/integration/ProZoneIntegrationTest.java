@@ -10,6 +10,7 @@ import com.maknom.eco.guard.repository.ProtectedZoneRepository;
 import org.junit.jupiter.api.Test;
 import org.locationtech.jts.geom.Polygon;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,7 +19,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 
 @Transactional
 @Sql(scripts = "/init-db.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)

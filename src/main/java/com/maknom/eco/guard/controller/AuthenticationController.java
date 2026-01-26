@@ -68,9 +68,9 @@ public class AuthenticationController extends AbstractController {
    @QueryMapping
    public AuthStatus authCheck(Principal principal) {
       try {
-         if (principal == null)
+         if (principal == null) {
             return new AuthStatus("Not authenticated", false);
-
+         }
          UserBean userBean = userService.getUserByEmail(principal.getName()).orElse(null);
          if (userBean == null || !userBean.isEnabled()) {
             return new AuthStatus("User account disabled or deleted", false);

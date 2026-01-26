@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
          userBean.setEmail(userRequest.getEmail());
          userBean.setPassword(new BCryptPasswordEncoder().encode(userRequest.getPassword()));
          userBean.setName(userRequest.getName());
-         userBean.setRole(TypeRole.parseTypeRole(userRequest.getRole()));
+         userBean.setRole(TypeRole.parse(userRequest.getRole()));
          return userRepository.save(userBean);
       }
       return null;

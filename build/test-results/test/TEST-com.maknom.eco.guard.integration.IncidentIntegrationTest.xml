@@ -1,96 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.maknom.eco.guard.integration.IncidentIntegrationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-01-23T10:44:54" hostname="DESKTOP-CP2Q1PN" time="2.528">
+<testsuite name="com.maknom.eco.guard.integration.IncidentIntegrationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-01-26T10:02:22" hostname="DESKTOP-CP2Q1PN" time="0.288">
   <properties/>
-  <testcase name="whenIncidentIsReported_thenItShouldBeLinkedToCorrectZone()" classname="com.maknom.eco.guard.integration.IncidentIntegrationTest" time="2.416"/>
-  <testcase name="shouldFindIncidentsInGeoJsonFormat()" classname="com.maknom.eco.guard.integration.IncidentIntegrationTest" time="0.11"/>
-  <system-out><![CDATA[11:44:24.974 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.maknom.eco.guard.integration.IncidentIntegrationTest]: IncidentIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-11:44:25.200 [Test worker] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
-11:44:25.213 [Test worker] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
-11:44:25.254 [Test worker] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 1.20.4
-11:44:25.828 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
-11:44:26.569 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
-11:44:26.577 [Test worker] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
-11:44:26.697 [Test worker] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
-  Server Version: 20.10.21
-  API Version: 1.41
-  Operating System: Docker Desktop
-  Total Memory: 1984 MB
-11:44:26.796 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Creating container for image: testcontainers/ryuk:0.11.0
-11:44:27.035 [Test worker] INFO org.testcontainers.utility.RegistryAuthLocator -- Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
-11:44:27.332 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Container testcontainers/ryuk:0.11.0 is starting: f82c1e869ac6b276f2b0f5a620169b2970645f2cb51a4c8d0579cd06e6cc25c4
-11:44:27.953 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Container testcontainers/ryuk:0.11.0 started in PT1.1565022S
-11:44:27.965 [Test worker] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
-11:44:27.966 [Test worker] INFO org.testcontainers.DockerClientFactory -- Checking the system...
-11:44:27.967 [Test worker] INFO org.testcontainers.DockerClientFactory -- ?? Docker server version should be at least 1.6.0
-11:44:27.969 [Test worker] INFO tc.postgis/postgis:17-3.5-alpine -- Creating container for image: postgis/postgis:17-3.5-alpine
-11:44:28.117 [Test worker] INFO tc.postgis/postgis:17-3.5-alpine -- Container postgis/postgis:17-3.5-alpine is starting: 59b1feee39b4d4cc4c0f935e550b1a493d015ace9ccf048cae0930bbf950bdef
-11:44:35.188 [Test worker] INFO tc.postgis/postgis:17-3.5-alpine -- Container postgis/postgis:17-3.5-alpine started in PT7.2196629S
-11:44:35.190 [Test worker] INFO tc.postgis/postgis:17-3.5-alpine -- Container is started (JDBC URL: jdbc:postgresql://localhost:58975/db_ecoguard?loggerLevel=OFF)
-11:44:35.192 [Test worker] INFO tc.redis:7-alpine -- Creating container for image: redis:7-alpine
-11:44:35.638 [Test worker] INFO tc.redis:7-alpine -- Container redis:7-alpine is starting: c1e07448abdac1daf496fd01865af3ccb7d54737baac884fb5ca83c9f88e21c3
-11:44:36.329 [Test worker] INFO tc.redis:7-alpine -- Container redis:7-alpine started in PT1.1371376S
-11:44:36.691 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.maknom.eco.guard.EcoGuardApplication for test class com.maknom.eco.guard.integration.IncidentIntegrationTest
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
-
- :: Spring Boot ::                (v3.4.1)
-
-2026-01-23T11:44:37.883+01:00  WARN 9828 --- [ecoguard] [    Test worker] ory$DuplicateJsonObjectContextCustomizer : 
-
-Found multiple occurrences of org.json.JSONObject on the class path:
-
-	jar:file:/C:/Users/aristide/.gradle/caches/modules-2/files-2.1/org.json/json/20240303/ebb88e8fb5122b7506d5cf1d69f1ccdb790d22a/json-20240303.jar!/org/json/JSONObject.class
-	jar:file:/C:/Users/aristide/.gradle/caches/modules-2/files-2.1/com.vaadin.external.google/android-json/0.0.20131108.vaadin1/fa26d351fe62a6a17f5cda1287c1c6110dec413f/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
-
-You may wish to exclude one of them to ensure predictable runtime behavior
-
-2026-01-23T11:44:37.944+01:00  INFO 9828 --- [ecoguard] [    Test worker] c.m.e.g.i.IncidentIntegrationTest        : Starting IncidentIntegrationTest using Java 17.0.5 with PID 9828 (started by aristide in C:\Software\private\backend-roadmap\eco-prjct\eco-guard\ecoguard)
-2026-01-23T11:44:37.946+01:00  INFO 9828 --- [ecoguard] [    Test worker] c.m.e.g.i.IncidentIntegrationTest        : No active profile set, falling back to 1 default profile: "default"
-2026-01-23T11:44:40.078+01:00  INFO 9828 --- [ecoguard] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-01-23T11:44:40.079+01:00  INFO 9828 --- [ecoguard] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-01-23T11:44:40.394+01:00  INFO 9828 --- [ecoguard] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 283 ms. Found 3 JPA repository interfaces.
-2026-01-23T11:44:42.824+01:00  INFO 9828 --- [ecoguard] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-01-23T11:44:43.032+01:00  INFO 9828 --- [ecoguard] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.4.Final
-2026-01-23T11:44:43.078+01:00  INFO 9828 --- [ecoguard] [    Test worker] o.h.spatial.integration.SpatialService   : HHH80000001: hibernate-spatial integration enabled : true
-2026-01-23T11:44:43.172+01:00  INFO 9828 --- [ecoguard] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-01-23T11:44:43.534+01:00  WARN 9828 --- [ecoguard] [    Test worker] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [hibernate.temp.use_jdbc_metadata_defaults], use [hibernate.boot.allow_jdbc_metadata_access] instead
-2026-01-23T11:44:43.609+01:00  WARN 9828 --- [ecoguard] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-01-23T11:44:43.716+01:00  INFO 9828 --- [ecoguard] [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [undefined/unknown]
-	Database driver: undefined/unknown
-	Database version: 12.0
-	Autocommit mode: undefined/unknown
-	Isolation level: <unknown>
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-01-23T11:44:43.782+01:00  INFO 9828 --- [ecoguard] [    Test worker] org.hibernate.spatial                    : HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
-2026-01-23T11:44:43.940+01:00  INFO 9828 --- [ecoguard] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-01-23T11:44:44.018+01:00  INFO 9828 --- [ecoguard] [    Test worker] org.hibernate.spatial                    : HHH80000003: hibernate-spatial adding type contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
-2026-01-23T11:44:44.862+01:00  INFO 9828 --- [ecoguard] [    Test worker] org.hibernate.spatial                    : HHH80000004: hibernate-spatial adding function contributions from : org.hibernate.spatial.dialect.postgis.PostgisDialectContributor
-2026-01-23T11:44:45.891+01:00  INFO 9828 --- [ecoguard] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-01-23T11:44:45.898+01:00  INFO 9828 --- [ecoguard] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-01-23T11:44:46.844+01:00  INFO 9828 --- [ecoguard] [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-01-23T11:44:48.578+01:00  INFO 9828 --- [ecoguard] [    Test worker] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-2026-01-23T11:44:48.579+01:00  WARN 9828 --- [ecoguard] [    Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2026-01-23T11:44:50.704+01:00  WARN 9828 --- [ecoguard] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-01-23T11:44:52.230+01:00  INFO 9828 --- [ecoguard] [    Test worker] efaultSchemaResourceGraphQlSourceBuilder : Loaded 1 resource(s) in the GraphQL schema.
-2026-01-23T11:44:52.834+01:00  INFO 9828 --- [ecoguard] [    Test worker] o.s.b.a.g.GraphQlAutoConfiguration       : GraphQL schema inspection:
-	Unmapped fields: {IncidentProperties=[id, zoneId, userId, category, description, urgency, reportDate]}
-	Unmapped registrations: {}
-	Unmapped arguments: {}
-	Skipped types: [ProtectedZone, IncidentGeometry, IncidentFeature]
-2026-01-23T11:44:52.916+01:00  INFO 9828 --- [ecoguard] [    Test worker] s.b.a.g.s.GraphQlWebMvcAutoConfiguration : GraphQL endpoint HTTP POST /graphql
-2026-01-23T11:44:53.024+01:00  INFO 9828 --- [ecoguard] [    Test worker] s.b.a.g.s.GraphQlWebMvcAutoConfiguration : GraphQL endpoint WebSocket /graphql
-2026-01-23T11:44:54.736+01:00  INFO 9828 --- [ecoguard] [    Test worker] c.m.e.g.i.IncidentIntegrationTest        : Started IncidentIntegrationTest in 17.733 seconds (process running for 35.41)
-2026-01-23T11:44:54.744+01:00  INFO 9828 --- [ecoguard] [    Test worker] c.m.e.g.c.ServerStartupLogger            : ECO GUARD is Ready !
-2026-01-23T11:44:54.805+01:00  INFO 9828 --- [ecoguard] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-01-23T11:44:55.241+01:00  INFO 9828 --- [ecoguard] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5e14f405
-2026-01-23T11:44:55.245+01:00  INFO 9828 --- [ecoguard] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+  <testcase name="whenIncidentIsReported_thenItShouldBeLinkedToCorrectZone()" classname="com.maknom.eco.guard.integration.IncidentIntegrationTest" time="0.187"/>
+  <testcase name="shouldFindIncidentsInGeoJsonFormat()" classname="com.maknom.eco.guard.integration.IncidentIntegrationTest" time="0.098"/>
+  <system-out><![CDATA[2026-01-26T11:02:22.293+01:00  INFO 2400 --- [ecoguard] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.maknom.eco.guard.integration.IncidentIntegrationTest]: IncidentIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-01-26T11:02:22.309+01:00  INFO 2400 --- [ecoguard] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.maknom.eco.guard.EcoGuardApplication for test class com.maknom.eco.guard.integration.IncidentIntegrationTest
 Hibernate: select pzb1_0.id,pzb1_0.geom,pzb1_0.name from protected_zones pzb1_0 where st_within(?,pzb1_0.geom)=true
 Hibernate: select ub1_0.id,ub1_0.email,ub1_0.name,ub1_0.password,ub1_0.role from users ub1_0 where ub1_0.email=?
 Hibernate: insert into incidents (category,description,geom,report_date,urgency,user_id,zone_id) values (?,?,?,?,?,?,?)
