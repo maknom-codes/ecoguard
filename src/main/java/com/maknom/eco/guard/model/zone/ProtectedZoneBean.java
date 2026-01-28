@@ -22,7 +22,7 @@ public class ProtectedZoneBean {
 
    private String name;
 
-   @Column(columnDefinition = "geometry(POLYGON, 4326")
+   @Column(columnDefinition = "geometry(POLYGON, 4326)")
    private Polygon geom;
 
 
