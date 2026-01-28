@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.maknom.eco.guard.services.CreateUserServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-01-28T22:46:07" hostname="DESKTOP-CP2Q1PN" time="1.614">
+  <properties/>
+  <testcase name="createNewUser_ShouldPassCorrectValue()" classname="com.maknom.eco.guard.services.CreateUserServiceTest" time="1.558"/>
+  <testcase name="createNewUser_ShouldReturnNull_WhenEmailAlreadyExist()" classname="com.maknom.eco.guard.services.CreateUserServiceTest" time="0.052"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

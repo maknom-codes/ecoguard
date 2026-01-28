@@ -1,0 +1,143 @@
+
+type Query {
+    authCheck: AuthStatus!
+    getZones: EcoGuardResponse!
+    userProfile: UserResponse!
+}
+
+type Mutation {
+    register(userRequest: RegisterInput!):AuthResponse
+    login(email: String!, password: String!): AuthResponse
+    logout: AuthResponse!
+    refreshToken: AuthResponse!
+    createProtectedZone(input: ZoneInput!): ProtectedZone!
+    createIncident(input: IncidentInput): Incident!
+    syncOfflineData(items: [SyncItemInput!]!): SyncResponse!
+}
+
+type Subscription {
+    syncCompleted: SyncEvent!
+}
+
+input ZoneInput {
+    name: String!
+    dataCoordinates: [[Float]]!
+}
+
+type EcoGuardResponse {
+    protectedZones: ZoneResponse!
+    incidentZones: IncidentResponse!
+}
+
+input IncidentInput {
+    description: String!
+    category: String!
+    latitude: Float!
+    longitude: Float
+    urgency: String!
+}
+
+input RegisterInput {
+    name: String!
+    password: String!
+    email: String!
+    role: String
+}
+
+type AuthResponse {
+    success: Boolean!
+    message: String!
+    user: UserResponse!
+}
+
+type UserResponse {
+    id: ID!
+    name: String!
+    email: String!
+    role: String
+}
+
+type ProtectedZone {
+    id: ID!
+    name: String!
+    geoJson: String!
+}
+
+type Incident {
+    id: ID!
+}
+
+input SyncItemInput {
+    id: ID!
+    incidentRequest: IncidentInput!
+    timestamp: String!
+}
+
+type AuthStatus {
+    authenticated: Boolean!,
+    message: String
+}
+
+type SyncResponse {
+    success: Boolean!
+    syncedIds: [ID]
+    failedIds: [ID]
+    message: String
+}
+
+type SyncEvent{
+    type: String!
+    timestamp: String!
+    data: IncidentFeature
+}
+
+type IncidentResponse {
+    type: String!
+    features: [IncidentFeature!]!
+}
+
+
+type ZoneResponse {
+    type: String!
+    features: [ZoneFeature!]!
+}
+
+type IncidentFeature {
+    type: String!
+    geometry: IncidentGeometry!
+    properties: IncidentProperties!
+}
+
+type ZoneFeature {
+    type: String!
+    geometry: ZoneGeometry!
+    properties: ZoneProperties!
+}
+
+type IncidentGeometry {
+    type: String!
+    coordinates: [Float!]!
+}
+
+
+type ZoneGeometry {
+    type: String!
+    coordinates: [[[Float!]!]!]!
+}
+
+type IncidentProperties {
+    id: ID!
+    zoneId: ID!
+    userId: ID!
+    category: String!
+    description: String!
+    urgency: String!
+    reportDate: String!
+}
+
+type ZoneProperties {
+    id: ID!
+    name: String!
+}
+
+scalar JSON

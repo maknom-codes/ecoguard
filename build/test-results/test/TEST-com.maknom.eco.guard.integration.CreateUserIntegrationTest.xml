@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.maknom.eco.guard.integration.CreateUserIntegrationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-28T22:46:04" hostname="DESKTOP-CP2Q1PN" time="0.844">
+  <properties/>
+  <testcase name="createUser_thenItShouldSuccess()" classname="com.maknom.eco.guard.integration.CreateUserIntegrationTest" time="0.844"/>
+  <system-out><![CDATA[2026-01-28T23:46:04.789+01:00  INFO 7768 --- [ecoguard] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.maknom.eco.guard.integration.CreateUserIntegrationTest]: CreateUserIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-01-28T23:46:04.895+01:00  INFO 7768 --- [ecoguard] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.maknom.eco.guard.EcoGuardApplication for test class com.maknom.eco.guard.integration.CreateUserIntegrationTest
+Hibernate: select ub1_0.id,ub1_0.email,ub1_0.name,ub1_0.password,ub1_0.role from users ub1_0 where ub1_0.email=?
+Hibernate: insert into users (email,name,password,role) values (?,?,?,?)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
