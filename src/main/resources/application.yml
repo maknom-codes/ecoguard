@@ -41,9 +41,9 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-#  liquibase:
-#    change-log: classpath:/db/change-master.xml
-#    drop-first: true
+  liquibase:
+    change-log: classpath:/db/changelog/db.change-master.xml
+    drop-first: true
 #logging.level.org.springframework: DEBUG
 
 cors:
