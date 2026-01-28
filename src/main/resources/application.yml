@@ -47,5 +47,5 @@ spring:
 #logging.level.org.springframework: DEBUG
 
 cors:
-  allowed-origins: ${ALLOWED_ORIGINS:http://localhost:3000}
+  allowed-origins: ${ALLOWED_ORIGINS:*}
   allowed-credentials: true
