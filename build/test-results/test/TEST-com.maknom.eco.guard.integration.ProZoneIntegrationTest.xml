@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.maknom.eco.guard.integration.ProZoneIntegrationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-28T22:46:07" hostname="DESKTOP-CP2Q1PN" time="0.558">
+<testsuite name="com.maknom.eco.guard.integration.ProZoneIntegrationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-29T01:01:57" hostname="DESKTOP-CP2Q1PN" time="0.391">
   <properties/>
-  <testcase name="whenProZoneIsCreated_thenItShouldSuccess()" classname="com.maknom.eco.guard.integration.ProZoneIntegrationTest" time="0.558"/>
-  <system-out><![CDATA[2026-01-28T23:46:07.368+01:00  INFO 7768 --- [ecoguard] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.maknom.eco.guard.integration.ProZoneIntegrationTest]: ProZoneIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-01-28T23:46:07.408+01:00  INFO 7768 --- [ecoguard] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.maknom.eco.guard.EcoGuardApplication for test class com.maknom.eco.guard.integration.ProZoneIntegrationTest
+  <testcase name="whenProZoneIsCreated_thenItShouldSuccess()" classname="com.maknom.eco.guard.integration.ProZoneIntegrationTest" time="0.391"/>
+  <system-out><![CDATA[2026-01-29T02:01:57.399+01:00  INFO 16472 --- [ecoguard] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.maknom.eco.guard.integration.ProZoneIntegrationTest]: ProZoneIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-01-29T02:01:57.418+01:00  INFO 16472 --- [ecoguard] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.maknom.eco.guard.EcoGuardApplication for test class com.maknom.eco.guard.integration.ProZoneIntegrationTest
 Hibernate: insert into protected_zones (geom,name) values (?,?)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

@@ -49,3 +49,14 @@ spring:
 cors:
   allowed-origins: ${ALLOWED_ORIGINS:*}
   allowed-credentials: true
+# Dans application.yml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+#      base-path: /actuator/health
+  endpoint:
+    health:
+      enabled: true
+      show-details: always

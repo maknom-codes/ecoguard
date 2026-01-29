@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.maknom.eco.guard.integration.IncidentIntegrationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-01-28T22:46:05" hostname="DESKTOP-CP2Q1PN" time="1.552">
+<testsuite name="com.maknom.eco.guard.integration.IncidentIntegrationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-01-29T01:01:56" hostname="DESKTOP-CP2Q1PN" time="1.234">
   <properties/>
-  <testcase name="whenIncidentIsReported_thenItShouldBeLinkedToCorrectZone()" classname="com.maknom.eco.guard.integration.IncidentIntegrationTest" time="1.448"/>
-  <testcase name="shouldFindIncidentsInGeoJsonFormat()" classname="com.maknom.eco.guard.integration.IncidentIntegrationTest" time="0.102"/>
-  <system-out><![CDATA[2026-01-28T23:46:05.768+01:00  INFO 7768 --- [ecoguard] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.maknom.eco.guard.integration.IncidentIntegrationTest]: IncidentIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-01-28T23:46:05.797+01:00  INFO 7768 --- [ecoguard] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.maknom.eco.guard.EcoGuardApplication for test class com.maknom.eco.guard.integration.IncidentIntegrationTest
+  <testcase name="whenIncidentIsReported_thenItShouldBeLinkedToCorrectZone()" classname="com.maknom.eco.guard.integration.IncidentIntegrationTest" time="1.15"/>
+  <testcase name="shouldFindIncidentsInGeoJsonFormat()" classname="com.maknom.eco.guard.integration.IncidentIntegrationTest" time="0.082"/>
+  <system-out><![CDATA[2026-01-29T02:01:56.134+01:00  INFO 16472 --- [ecoguard] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.maknom.eco.guard.integration.IncidentIntegrationTest]: IncidentIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-01-29T02:01:56.153+01:00  INFO 16472 --- [ecoguard] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.maknom.eco.guard.EcoGuardApplication for test class com.maknom.eco.guard.integration.IncidentIntegrationTest
 Hibernate: select pzb1_0.id,pzb1_0.geom,pzb1_0.name from protected_zones pzb1_0 where st_within(?,pzb1_0.geom)=true
 Hibernate: select ub1_0.id,ub1_0.email,ub1_0.name,ub1_0.password,ub1_0.role from users ub1_0 where ub1_0.email=?
 Hibernate: insert into incidents (category,description,geom,report_date,urgency,user_id,zone_id) values (?,?,?,?,?,?,?)
