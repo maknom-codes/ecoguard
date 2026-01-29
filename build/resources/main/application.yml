@@ -1,6 +1,6 @@
 server:
   port: 8081
-
+  address: 0.0.0.0
 spring:
   application:
     name: ecoguard
@@ -9,8 +9,6 @@ spring:
         secret-key: ${ECO_JWT_SECRET_KEY:Z0FBZ3Y5NHBQU0p6YUhSMGNtdHphR0Z5YVdkbVpYSnZkbWxqYkdGMWIzQnlaV1Z6ZEdWemRHVnpjM1JoY21SallXMXdiM0psYzNOMVpXNWpaSEpsY21WemRHRXo= }
         access-token-expiration: ${ECO_ACCESS_JWT_EXP:900000}
         refresh-token-expiration: ${ECO_REFRESH_JWT_EXP:604800000}
-        cookie-domain: localhost
-        secure-cookie: false
   graphql:
     websocket:
       path: /graphql

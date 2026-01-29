@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.maknom.eco.guard.model.user.UserService;
 import org.locationtech.jts.geom.Polygon;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
@@ -32,20 +31,14 @@ public class GeneralConfiguration implements WebMvcConfigurer {
 
    private final RateLimiterInterceptor rateLimiterInterceptor;
 
-   private final String cookieDomain;
 
-   private final boolean secureCookie;
 
 
    public GeneralConfiguration(UserService userService,
-                               RateLimiterInterceptor rateLimiterInterceptor,
-                               @Value("${spring.application.security.jwt.cookie-domain}") String cookieDomain,
-                               @Value("${spring.application.security.jwt.secure-cookie}") boolean secureCookie
+                               RateLimiterInterceptor rateLimiterInterceptor
                                ) {
       this.userService = userService;
       this.rateLimiterInterceptor = rateLimiterInterceptor;
-      this.cookieDomain = cookieDomain;
-      this.secureCookie = secureCookie;
    }
 
    @Bean

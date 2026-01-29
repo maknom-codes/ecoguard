@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.maknom.eco.guard.integration.CreateUserIntegrationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-29T01:01:55" hostname="DESKTOP-CP2Q1PN" time="0.587">
+<testsuite name="com.maknom.eco.guard.integration.CreateUserIntegrationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-29T16:34:12" hostname="DESKTOP-CP2Q1PN" time="0.622">
   <properties/>
-  <testcase name="createUser_thenItShouldSuccess()" classname="com.maknom.eco.guard.integration.CreateUserIntegrationTest" time="0.587"/>
-  <system-out><![CDATA[2026-01-29T02:01:55.472+01:00  INFO 16472 --- [ecoguard] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.maknom.eco.guard.integration.CreateUserIntegrationTest]: CreateUserIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-01-29T02:01:55.528+01:00  INFO 16472 --- [ecoguard] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.maknom.eco.guard.EcoGuardApplication for test class com.maknom.eco.guard.integration.CreateUserIntegrationTest
+  <testcase name="createUser_thenItShouldSuccess()" classname="com.maknom.eco.guard.integration.CreateUserIntegrationTest" time="0.622"/>
+  <system-out><![CDATA[2026-01-29T17:34:12.297+01:00  INFO 11788 --- [ecoguard] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.maknom.eco.guard.integration.CreateUserIntegrationTest]: CreateUserIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-01-29T17:34:12.351+01:00  INFO 11788 --- [ecoguard] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.maknom.eco.guard.EcoGuardApplication for test class com.maknom.eco.guard.integration.CreateUserIntegrationTest
 Hibernate: select ub1_0.id,ub1_0.email,ub1_0.name,ub1_0.password,ub1_0.role from users ub1_0 where ub1_0.email=?
 Hibernate: insert into users (email,name,password,role) values (?,?,?,?)
 ]]></system-out>
